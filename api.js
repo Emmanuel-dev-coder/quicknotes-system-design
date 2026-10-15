@@ -35,7 +35,33 @@ function createNoteElement(note) {
     const body = document.createElement("p");
     body.textContent = note.body || "No body provided.";
 
-    item.append(title, body);
+    const deleteButton = document.createElement("button");
+    deleteButton.textContent = "Delete";
+    deleteButton.type = "button";
+
+    deleteButton.addEventListener("click", async () => {
+        deleteButton.disabled = true;
+        showStatus("Deleting note...");
+
+        try {
+            await request(`${API_URL}/${note.id}`, {
+                method: "DELETE"
+            });
+
+            item.remove();
+
+            if (notesList.children.length === 0) {
+                showStatus("No notes left. Load or create a note.");
+            } else {
+                showStatus("Note deleted successfully.", "success");
+            }
+        } catch (error) {
+            showStatus("Sorry, we couldn't delete the note. Please try again.", "error");
+            deleteButton.disabled = false;
+        }
+    });
+
+    item.append(title, body, deleteButton);
     return item;
 }
 
