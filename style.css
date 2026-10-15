@@ -1,0 +1,141 @@
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    padding: 24px;
+    font-family: Arial, sans-serif;
+    line-height: 1.6;
+    color: #263238;
+    background: #f4f6f8;
+}
+
+header {
+    max-width: 900px;
+    margin: 0 auto 24px;
+    text-align: center;
+}
+
+header h1 {
+    margin-bottom: 4px;
+    color: #2457a7;
+}
+
+header p {
+    margin-top: 0;
+    color: #5f6b76;
+}
+
+main {
+    max-width: 900px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 24px;
+}
+
+section {
+    padding: 24px;
+    background: white;
+    border: 1px solid #dce2e8;
+    border-radius: 10px;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.05);
+}
+
+h2 {
+    margin-top: 0;
+}
+
+button {
+    padding: 10px 16px;
+    border: none;
+    border-radius: 6px;
+    color: white;
+    background: #2457a7;
+    cursor: pointer;
+    font-size: 14px;
+}
+
+button:hover {
+    background: #193f7a;
+}
+
+button:disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
+}
+
+#status {
+    padding: 10px;
+    border-radius: 6px;
+    background: #eef2f6;
+    overflow-wrap: anywhere;
+}
+
+#status.success {
+    color: #176534;
+    background: #e7f6ec;
+}
+
+#status.error {
+    color: #a3212d;
+    background: #fdebed;
+}
+
+#notes-list {
+    padding-left: 22px;
+}
+
+#notes-list li {
+    margin: 16px 0;
+    padding: 12px;
+    border: 1px solid #e0e5eb;
+    border-radius: 6px;
+    overflow-wrap: anywhere;
+}
+
+#notes-list h3 {
+    margin-top: 0;
+}
+
+#notes-list li button {
+    background: #b42332;
+}
+
+#notes-list li button:hover {
+    background: #861a25;
+}
+
+form label {
+    display: block;
+    margin: 14px 0 6px;
+    font-weight: bold;
+}
+
+input,
+textarea {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #b9c3ce;
+    border-radius: 6px;
+    font: inherit;
+}
+
+textarea {
+    resize: vertical;
+}
+
+#submit-btn {
+    margin-top: 16px;
+}
+
+@media (max-width: 650px) {
+    body {
+        padding: 14px;
+    }
+
+    main {
+        grid-template-columns: 1fr;
+    }
+}
